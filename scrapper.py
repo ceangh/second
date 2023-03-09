@@ -14,6 +14,9 @@ def extract_source(number):
     source=requests.get(url, headers=headers).text
     soup = bs(source, 'html.parser')
     ProductInfo = soup.find("table", {"class": "ProductDetailsTable"})
+    if ProductInfo is None:
+        return 'NOT FOUND'
+
     ls= list(ProductInfo)
 
     for i in range ( 30 , 60):
@@ -32,5 +35,5 @@ if __name__ == '__main__':
     df['EAN'] = df['Bestellnummer'].apply(extract_source)
 
     # Save modified DataFrame to Excel file
-    df.to_excel('output4.xlsx', index=False)
+    df.to_excel('output7.xlsx', index=False)
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
