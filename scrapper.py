@@ -64,7 +64,7 @@ def extract_source(number):
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
    # extract_source(184765)
-    df = pd.read_excel(r'C:\Users\c.gomez\Desktop\input.xlsx')
+    df = pd.read_excel(r'C:\Users\c.gomez\Desktop\input.xlsx',dtype={'Bestellnummer':str})
     # Apply function to column data and store result in new column
     df['EAN'] = df['Bestellnummer'].apply(extract_source)
 
